@@ -11,23 +11,23 @@
 
 
  .include "tn4def.inc"
- #define BREATH	1				;	
- #define HBEAT1	2
- #define HBEAT2	3
- #define SINE	9				;	
+#define BREATH	1
+#define HBEAT1	2
+#define HBEAT2	3
+#define SINE	9
 
- #define MODE SINE
+#define MODE SINE
  
 
 .equ    LED = 0				; LED connected to PB0
 
-; if you use the HEARTBEAT patterns the delay should be 2-4ms
 #if MODE == BREATH
 .equ  DELAYTIME = 17
 #elif MODE == HBEAT1
-.equ	DELAYTIME = 17		; 17 ms between PWM changes
+; if you use the HEARTBEAT patterns the delay should be 2-4ms
+.equ	DELAYTIME = 2
 #elif MODE == HBEAT2
-.equ	DELAYTIME = 17		; 17 ms between PWM changes
+.equ	DELAYTIME = 2
 #elif MODE == SINE
 .equ DELAYTIME = 33
 #else
