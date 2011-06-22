@@ -5,28 +5,29 @@
  * BREATH:			50    300    350     512  68.4%
  * HBEAT1:			50    284    334     512  65.2%
  * HBEAT2:			50    302    352     512  68.8%
- * SINE:			50     64    114     512  22.3%
+ * SINE:			50     66    116     512  22.7%
  *
-*/ 
+ */ 
 
-#define BREATH	1
-#define HBEAT1	2
-#define HBEAT2	3
-#define SINE	9
 
-#define MODE HBEAT2
+ .include "tn4def.inc"
+ #define BREATH	1				;	
+ #define HBEAT1	2
+ #define HBEAT2	3
+ #define SINE	9				;	
 
-.include "tn4def.inc"
+ #define MODE SINE
+ 
 
 .equ    LED = 0				; LED connected to PB0
 
+; if you use the HEARTBEAT patterns the delay should be 2-4ms
 #if MODE == BREATH
 .equ  DELAYTIME = 17
-; if you use the HEARTBEAT patterns the delay should be 2-4ms
 #elif MODE == HBEAT1
-.equ	DELAYTIME = 2
+.equ	DELAYTIME = 17		; 17 ms between PWM changes
 #elif MODE == HBEAT2
-.equ	DELAYTIME = 2
+.equ	DELAYTIME = 17		; 17 ms between PWM changes
 #elif MODE == SINE
 .equ DELAYTIME = 33
 #else
